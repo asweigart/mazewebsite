@@ -1,0 +1,23 @@
+.row {
+  font-family: "Times New Roman", Times, serif;
+}
+
+/*
+.row {
+  font-size: 1em;
+}
+
+@media (min-width: 992px) {
+  .row {
+    font-size: 1em;
+  }
+}
+*/
+
+.zoom-icon {
+  text-decoration: none;
+}
+
+.bottom-page-links {
+  margin-top: 20px;
+}
