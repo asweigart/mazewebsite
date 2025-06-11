@@ -886,12 +886,6 @@ image_map_data = {1: [('20', 'rect', '476,212,879,966'),
 
 
 
-PAGE_LINKS = ['<a href="index.html">Home</a>']
-for i in range(1, 46):
-    PAGE_LINKS.append(f'<a href="room{i}.html">{i}</a>')
-PAGE_LINKS = ' | '.join(PAGE_LINKS)
-
-
 for i in range(1, 46):
     print(f'Generating room #{i}...')
     image_map_html = ''
@@ -899,6 +893,15 @@ for i in range(1, 46):
         dest, shape, coords = data
         # Thumbnails are 25% resized
         coords = ','.join([str(int(c) // 4) for c in coords.split(',')])
+
+        PAGE_LINKS = ['<a href="index.html">Home</a>']
+        for j in range(1, 46):
+            if i == j:
+                PAGE_LINKS.append(f'{j}') # no link for the current page
+            else:
+                PAGE_LINKS.append(f'<a href="room{j}.html">{j}</a>')
+        PAGE_LINKS = ' | '.join(PAGE_LINKS)
+
         image_map_html += f'<area target="" alt="Room {dest}" title="Room {dest}" href="room{dest}.html" coords="{coords}" shape="{shape}">\n'
 
     content = f'''<!DOCTYPE html>
